@@ -1,0 +1,38 @@
+iniciei o node => pnpm init
+instalei express e seus tipos
+iniciei o typescript => pnpm tsc --init
+script para rodar com typescript => pnpm ts-node-dev -D
+
+mudei o script para rodar => "dev": "ts-node-dev src/server.ts"
+- Pode também deixar seu script start apenas para fazer compilar e dar o start, deixando ele assim:
+"dev": "ts-node-dev --transpile-only src/server.ts"
+
+TRATAR ERROS:
+pnpm i express-async-errors
+
+ -----------DATABASE----------
+1- criar banco de dados
+2- instalar prisma => pnpm i prisma e @prisma/client
+3- iniciar prisma => npx prisma init
+4- config => DATABASE_URL="postgresql://postgres:1234567@localhost:5432/pizzaria?schema=public"
+
+5- instanciar prismaClient => pasta: src/prisma/index.ts
+6- criar schema model de cada tabela "schema.prisma"
+7- fazer migration => npx prisma migrate dev
+
+
+
+---------------------------------
+* Camada de service que mexe com validações, banco de dados.
+* Camada de controller se comunica diretamente com as rotas
+
+
+
+---------Novos tipos---------------------
+criar arquivo index.d.ts
+ir no ts.config e acrescentar a rota no typeroots
+
+
+-------configurar pasta para upload de imagens-------
+instalar => pnpm i multer
+criar pasta config-multer.ts
