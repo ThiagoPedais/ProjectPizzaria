@@ -15,6 +15,8 @@ import { RemoveOrderController } from './controllers/order/RemoveOrderController
 import { AddItemController } from './controllers/order/AddItemController';
 import { RemoveItemController } from './controllers/order/RemoveItemController';
 import { SendOrderController } from './controllers/order/SendOrderController';
+import { ListOrderController } from './controllers/order/ListOrderController';
+import { DetailOrderController } from './controllers/order/DetailOrderController';
 
 
 
@@ -36,6 +38,8 @@ router.post('/product', isAuthenticated, upload.single("file"), new CreateProduc
 router.get('/category/products', isAuthenticated, new ListByCategoryController().handle);
 
 // Routes orders
+router.get('/orders', isAuthenticated, new ListOrderController().handle);
+router.get('/order/detail', isAuthenticated, new DetailOrderController().handle);
 router.post('/order', isAuthenticated, new CreateOrderController().handle);
 router.post('/order/add', isAuthenticated, new AddItemController().handle);
 router.delete('/order', isAuthenticated, new RemoveOrderController().handle);
